@@ -8,7 +8,11 @@
     <meta name="copyright" content="Copyright © 2018 by Bedratyi Eduard">
     <link href="css/normalize.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/SuperPaginator.css" rel="stylesheet">
+    <link href="css/media_screens.css" rel="stylesheet">
+    <script src="js/es5-shim-master/es5-shim.min.js"></script>
+    <script src="js/es5-shim-master/es5-sham.min.js"></script>
+    <!--<script src="https://wzrd.in/standalone/es7-shim@latest"></script>-->
+    <!--<link href="css/paging.css" rel="stylesheet">-->
     <!--<script src="js/addContent.js"></script>-->
     <script src="js/formValidation.js"></script>
     <script src="js/contentSearching.js"></script>
@@ -18,29 +22,38 @@
     <script src="js/paginator.js"></script>
     <script src="js/subMenu.js"></script>
     <script src="js/subMenuCreator.js"></script>
+    <script src="js/contentSorting.js"></script>
+    <script src="js/reviewsCreator.js"></script>
 </head>
 <body>
 <!------------------------ M O D A L    W I N D O W--------------------------------->
-<!--<div id="modal-addContent" class="modal-window">
+<div id="modal-addContent" class="modal-window">
     <div class="wrapper-addContent"><!---------------Internal modal window -------------------->
-        <!--<a href="#" title="закрыть" class="close-addContent"></a>
+        <a href="#" title="закрыть" class="close-addContent"></a>
         <form name="addContent" id="addContent">
             <fieldset>
-                <legend>Please fill in the fields to add Content</legend>
+                <legend>Please fill in the fields to add Content
+                </legend>
                 <div>
-                    <input type="text" name="userName" placeholder="Please, enter Your name">
+                    <input type="text" name="userName" placeholder="Введите свое имя">
                 </div>
                 <div>
-                    <input type="email" name="email" placeholder="Please, enter Your email">
+                    <input type="email" name="email" placeholder="Введите свой email">
                 </div>
                 <div>
-                    <input type="text" name="country" placeholder="Please, enter Your country">
+                    <input type="text" name="type" placeholder="Введите тип недвижимости">
                 </div>
                 <div>
-                    <input type="text" name="category" value="" placeholder="Please, enter Category`s name">
+                    <input type="text" name="deal" placeholder="Введите рубрику размещения">
                 </div>
                 <div>
-                    <input type="file" name="file" value="" placeholder="Please, load a File" id="addFile">
+                    <input type="text" name="description" value="" placeholder="Сделайте описание">
+                </div>
+                <div>
+                    <input type="text" name="price" value="" placeholder="Цена объекта">
+                </div>
+                <div>
+                    <input type="file" name="file" value="" placeholder="Загрузите фото объекта" id="addFile">
                 </div>
                 <div>
                     <textarea name="message" placeholder="Please, enter your text" id="textContent"></textarea>
@@ -50,7 +63,7 @@
             </fieldset>
         </form>
     </div>
-</div>-->
+</div>
 <div id="modal-map" class="modal-window">
     <div class="wrapper-map"><!---------------Internal modal window -------------------->
         <a href="#" title="закрыть" class="close-map"></a>
@@ -131,7 +144,7 @@
 <!----------------------------------------Slider ------------------------------->
 <div class="slider">
     <div class="slider-arrows" id="backArrow">
-        <img src="images/elements/arrow-back48.png" alt="" onclick="slider.left();">
+        <img src="images/elements/arrow-back48grey.png" alt="" onclick="slider.left();">
     </div>
     <div id="src" class="slider-photo">
         <header class="header">
@@ -139,7 +152,7 @@
                 <a href="index.html"><em>The Real</em> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>Estate <br> Agency</em></a>
             </h1>
             <ul class="menu">
-                <li><a href="index.html">Home</a><span class="line">&nbsp;&nbsp;&nbsp;|</span></li>
+                <li class="home"><a href="index.html">Home</a><span class="line">&nbsp;&nbsp;&nbsp;|</span></li>
                 <li class="menu-service"><a href="#">Услуги</a><span class="line">&nbsp;&nbsp;&nbsp;|</span>
                     <ul id="services" class="levelOne-parent">
                         <!--
@@ -157,10 +170,10 @@
                 <li class="menu-catalogue"><a href="#">Каталог недвижимости</a><span class="line">&nbsp;&nbsp;&nbsp;|</span>
                     <ul id="catalogue" class="levelOne-parent"></ul>
                 </li>
-                <li><a href="#">Отзывы</a><span class="line">&nbsp;&nbsp;&nbsp;|</span></li>
-                <li><a href="#">Онлайн-предзаказ</a><span class="line">&nbsp;&nbsp;&nbsp;|</span></li>
+                <li><a href="#reviews">Отзывы</a><span class="line">&nbsp;&nbsp;&nbsp;|</span></li>
+                <li><a href="#online-order">Онлайн-предзаказ</a><span class="line">&nbsp;&nbsp;&nbsp;|</span></li>
                 <li><a href="#modal-map" title="Ukraine, Kiev, Glubochitskaya 72, Podol /www.витраж.укр/ tel:+380(98)111-96-96">Contacts</a><span class="line">&nbsp;&nbsp;&nbsp;|</span></li>
-                <li class="menu-logIn"><a href="#">Log In</a><span class="line">&nbsp;&nbsp;&nbsp;|</span>
+                <li class="menu-logIn"><a href="#">Log In</a>
                     <ul class="menu-reg levelZero">
                         <li class="menu-reg-drop"><a href="#">Log In</a></li>
                         <li class="menu-reg-drop"><a href="#modal-reg">Registration</a></li>
@@ -170,11 +183,11 @@
         </header>
     </div>
     <div class="slider-arrows" id="forwardArrow">
-        <img src="images/elements/arrow-forward48.png" alt="" onclick="slider.right();">
+        <img src="images/elements/arrow-forward48grey.png" alt="" onclick="slider.right();">
     </div>
 </div>
 <div class="introduction">
-    <div class="intro-img"><img src="images/apartments.jpg" alt="" /></div>
+    <div class="intro-img"><img src="images/apartments.jpg" alt="comfort apartment"></div>
     <div class="article">
         <cite>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </cite>
         <blockquote>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</blockquote>
@@ -196,7 +209,7 @@
     <!-----------------------------------CONTENT -------------------------------------->
     <section class="content">
         <div id="contentPage" class="content-page"></div>
-        <div id="box">
+        <div id="paging">
             <div id="page_list" class="page_list"></div>
             <div id="page_panel"></div>
         </div>
@@ -204,22 +217,37 @@
         <form name="search-form" class="search-form">
             <input type="text" id="search" class="search-field" placeholder="Поиск по объектам недвижимости">
             <input type="reset" value="Сброс" class="reset button">
-            <input type="button" class="search button" onclick="searchFunction()" value="Искать">
+            <!--<input type="button" class="search button" onclick="searchFunction()" value="Искать">-->
+            <input type="button" class="search button" id="searchBtn" value="Искать">
         </form>
+        <!-----------------------------------Sorting buttons -------------->
         <div class="sort-button-block">
             <input type="button" class="sort button" id="sortByPrice" value="Отсортировать по цене">
-            <input type="button" class="sort button" id="sortByAddress" value="Отсортировать по адресу">
+            <input type="button" class="sort button" id="sortByAddress" value="Отсортировать по расположению">
         </div>
-        <!-----------------------------------Sorting buttons -------------->
     </section>
-    <aside class="reviews" id="reviews">
-    </aside>
+    <!-------------------------------------Consulting ------------------------------------>
+    <div class="consulting">
+        <div class="consulting-img"><img src="images/home.jpg" alt="home picture"></div>
+        <div class="comments">
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                esse cillum dolore eu fugiat nulla pariatur.<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.<br>
+            Работая с нами Вы никогда не будете огорчены результатами нашего труда. Вы всегда будете в выигрыше.</p>
+        </div>
+        <div class="phones">
+            <p>tel.: +380(98)111-96-96<br>
+            e-mail: 0981119696.mail.ru@gmail.com</p>
+        </div>
+    </div>
 </main>
-
     <!------------------------------GALLERY--------------------------------->
     <section class="gallery">
         <div class="gallery-arrows" id="leftArrow">
-            <label for="gallery-second"><img src="images/elements/arrow-back48.png" alt="">
+            <label for="gallery-second"><img src="images/elements/arrow-back48grey.png" alt="">
             </label>
         </div>
         <div class="gallery-wrapper">
@@ -238,17 +266,49 @@
                 </div>
             </div>
         </div>
-        <div class="gallery-arrows" id="rightArrow"><label for="gallery-first"><img src="images/elements/arrow-forward48.png" alt=""></label></div>
+        <div class="gallery-arrows" id="rightArrow"><label for="gallery-first"><img src="images/elements/arrow-forward48grey.png" alt=""></label></div>
     </section>
-
+<section class="order-and-reviews">
+    <section class="suggestion">
+        <h3>Почему сейчас?</h3>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.<br>
+            Работая с нами Вы никогда не будете огорчены результатами нашего труда. Вы всегда будете в выигрыше.</p>
+    </section>
+    <form name="addContent" id="online-order-form">
+        <fieldset>ОНЛАЙН ПРЕДЗАКАЗ
+            <div>
+                <input type="text" name="userName" placeholder="Please, enter Your name">
+            </div>
+            <div>
+                <input type="email" name="email" placeholder="Please, enter Your email">
+            </div>
+            <div>
+                <input type="text" name="country" placeholder="Please, enter Your country">
+            </div>
+            <div>
+                <textarea name="message" placeholder="Please, enter your text" id="online-order-text"></textarea>
+            </div>
+            <input type="reset" name="reset" class="addContent button" value="reset">
+            <input type="submit" name="submit" class="addContent button" value="submit" id="online-order-submit">
+        </fieldset>
+    </form>
+    <section class="reviews">
+        <h3>Отзывы</h3>
+        <div id="reviews"></div>
+    </section>
+</section>
 
 <!-------------------------------------FOOTER ------------------------------------>
 <footer class="footer">
-    <h3 class="logo">
-        <a href="index.html"><em>Content <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Library</em></a>
-    </h3>
+    <h1 class="logo">
+        <a href="index.html"><em>The Real</em> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<em>Estate <br> Agency</em></a>
+    </h1>
     <ul class="menu">
         <li><a href="index.html">Home</a><span class="line">&nbsp;&nbsp;&nbsp;&nbsp;|</span></li>
+        <li><a href="#">Онлайн-предзаказ</a><span class="line">&nbsp;&nbsp;&nbsp;|</span></li>
         <li><a href="#modal-map" title="Ukraine, Kiev, Glubochitskaya 72, Podol /www.витраж.укр/ tel:+380(98)111-96-96">Contacts</a><span class="line">&nbsp;&nbsp;&nbsp;&nbsp;|</span></li>
         <li class="menu-logIn"><a href="#">Log In</a><span class="line">&nbsp;&nbsp;&nbsp;&nbsp;|</span>
             <ul class="menu-reg levelZero">
@@ -265,10 +325,13 @@
     </ul>
 </footer>
 <script>
-    subMenuCreator(menuService, "services");
-    subMenuCreator(menuCatalogue, "catalogue");
+    subMenuCreator("services", menuService);
+    subMenuCreator("catalogue", menuCatalogue);
     contentCreator(content);
     reviewsCreator(review);
+    searching("searchBtn",content,contentCreator);
+    sortByPrice("sortByPrice",content,contentCreator);
+    sortByAddress("sortByAddress", content, contentCreator);
 </script>
 </body>
 </html>

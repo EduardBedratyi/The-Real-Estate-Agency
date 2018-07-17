@@ -1,10 +1,3 @@
-window.addEventListener('load', function() {
-    slider.init();
-    setInterval(function() {
-        slider.right();
-    },5000);
-});
-
  var slider = {
  slides: [
      'images/banner/9.jpg',
@@ -31,3 +24,9 @@ window.addEventListener('load', function() {
  slider.init();
  }
  };
+ window.addEventListener('load', function() {
+     slider.init();
+     setInterval(function() {
+         slider.right();
+     },5000);
+ });

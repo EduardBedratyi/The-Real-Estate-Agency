@@ -29,7 +29,7 @@ var menuService = [
         'items' : [
             {
                 'subtitle': 'Добавить объект для продажи',
-                'subtitle_link': 'modal-addContent',
+                'subtitle_link': '#modal-addContent',
             },
             {
                 'subtitle': 'Посмотреть объект на карте',
@@ -42,15 +42,15 @@ var menuService = [
         'items' : [
             {
                 'subtitle': 'Сдать посуточно',
-                'subtitle_link': 'modal-addContent',
+                'subtitle_link': '#modal-addContent',
             },
             {
                 'subtitle': 'Сдать на длителный срок',
-                'subtitle_link': 'modal-addContent',
+                'subtitle_link': '#modal-addContent',
             },
             {
                 'subtitle': 'Сдать в лизинг',
-                'subtitle_link': 'modal-addContent'
+                'subtitle_link': '#modal-addContent'
             }
         ]
     },

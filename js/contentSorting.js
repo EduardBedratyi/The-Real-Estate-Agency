@@ -1,38 +1,64 @@
-// Наша функция сравнения
-function comparePrice(a, b) {
-    return a.price - b.price;
+function byField(field) {
+    return function(a, b) {
+        return a[field] > b[field] ? 1 : -1;
+    }
 }
-function compareAddress(a, b) {
-    return a.address - b.address;
-}
-/*------------------------------------------------------------------*/
-var getId = function(id) {
-    return document.getElementById(id);
-};
-function sortByPrice(id,callback){
-    var element = getId(id);
+
+function sortByAddress(id, array, callback){
+    var element = document.getElementById(id);
     if (element && element.addEventListener) {
         element.addEventListener("click", function () {
-            var new_array = [];
-               for (var k in content[k].price) {
-                    new_array.push(content[k].price);
+
+            var address_array = array.sort(byField('address'));
+
+            callback(address_array);
+        }, false)
+    }
+}
+function sortByPrice(id, array, callback){
+    var element = document.getElementById(id);
+    if (element && element.addEventListener) {
+        element.addEventListener("click", function () {
+
+            var price_array = array.sort(byField('price'));
+
+            callback(price_array);
+        }, false)
+    }
+}
+/*function sortByPrice(id,array,callback){
+    var element = document.getElementById(id)
+    if (element && element.addEventListener) {
+        element.addEventListener("click", function () {
+            var price_array = array.slice().sort(function (a, b) {
+                return +a.price.slice(0,3) - +b.price.slice(0,3);
+            });
+            //function comparePrice(a, b) {
+            //    return +a.price.slice(0,3) - +b.price.slice(0,3);
+            //}
+            //var price_array = array.slice().sort(comparePrice);
+            callback(price_array);
+        }, false)
+    }
+}*/
+
+/*function sortByAddress(id, array, callback){
+    var element = document.getElementById(id);
+    if (element && element.addEventListener) {
+        element.addEventListener("click", function () {
+            function compareAddress(a, b) {
+                var c = a.address,
+                    d = b.address;
+
+                if( c < d ){
+                    return -1;
+                }else if( c > d ){
+                    return 1;
                 }
-            callback(new_array.sort(comparePrice));
-        }, false)
-    }
-}
-sortByPrice("sortByPrice",contentCreator);
-/*-----------------------------------------------------------------*/
-function sortByAddress(id,callback){
-    var element = getId(id);
-    if (element && element.addEventListener) {
-        element.addEventListener("click", function () {
-            var new_array = [];
-            for (var k in content[k]) {
-                new_array.push(content[k]);
+                return 0;
             }
-            callback(new_array.sort(compareAddress));
+            var address_array = array.slice().sort(compareAddress);
+            callback(address_array);
         }, false)
     }
-}
-sortByAddress("sortByAddress",contentCreator);
+}*/
