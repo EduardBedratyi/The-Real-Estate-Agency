@@ -1,0 +1,129 @@
+/*-------------------------------@media screen and-----------------------*/
+/* Настольные компьютеры и ноутбуки ----------- */
+@media only screen  and (max-width: 1224px) {
+    .article {
+        font-size: 1.5rem;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    html {
+        font-size: 11px;
+    }
+    .home,
+    .suggestion{
+        display: none;
+    }
+    .menu > li {
+        margin: auto 10px;
+        line-height: 1.5;
+    }
+    .menu span {
+        margin-left: 10px;
+    }
+    .introduction > div {
+        margin: 5px;
+    }
+    .article {
+        width: 33%;
+        height: 420px;
+    }
+    .address {
+        font-size: 1.2rem;
+    }
+    .content {
+        display: block;
+        margin: 10px;
+        font-size: 1.2rem;
+    }
+    .chapter {
+        width: 200px;
+    }
+    .content-page {
+        overflow: auto;
+        height: 600px;
+        width: 100%;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .consulting {
+        display: -ms-flex;
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        /*height: 420px;*/
+        width: 100%;
+    }
+    .comments {
+        font-size: 1.3rem;
+        overflow: hidden;
+    }
+    .phones {
+        font-size: 1.5rem;
+    }
+}
+@media screen and (min-width: 480px) and (max-width: 768px){
+    .article {
+        font-size: 1.3rem;
+    }
+    .content-page {
+        overflow: auto;
+        height: 600px;
+        width: 100%;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .home,
+    .line,
+    .consulting,
+    .suggestion,
+    .intro-img {
+        display: none;
+    }
+    .chapter {
+        width: 10%;
+    }
+    .description {
+        width: 20%;
+    }
+    .gallery-wrapper {
+        width: 480px;
+    }
+    input[id="gallery-second"]:checked ~ div.gallery-container {
+        left: -480px;
+    }
+}
+@media screen and (max-width: 480px){
+    .line,
+    .home,
+    .line,
+    .consulting,
+    .suggestion,
+    .intro-img,
+    .article {
+        display: none;
+    }
+    .chapter {
+        width: 40%;
+    }
+    .content {
+        min-width: 280px;
+    }
+    .search-form,
+    .sort-button-block{
+        min-width: 270px;
+        /*margin: 20px;*/
+    }
+    .gallery-img {
+        width: 230px;
+    }
+    .gallery-wrapper {
+        width: 240px;
+    }
+    input[id="gallery-second"]:checked ~ div.gallery-container {
+        left: -240px;
+    }
+    .online-order-form {
+        margin: 0 60px 20px 0;
+    }
+}
